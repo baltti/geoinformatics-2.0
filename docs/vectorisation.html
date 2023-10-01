@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 8 Векторизация | Геоинформатика и геоинформационные системы</title>
+  <meta name="description" content=" 8 Векторизация | Геоинформатика и геоинформационные системы" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 8 Векторизация | Геоинформатика и геоинформационные системы" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 8 Векторизация | Геоинформатика и геоинформационные системы" />
+  
+  
+  
+
+<meta name="author" content="Балтыжакова Татьяна" />
+
+
+<meta name="date" content="2023-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="georeferencing.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Геоинформатика и геоинформационные системы</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Общие сведения</a></li>
+<li class="chapter" data-level="2" data-path="history.html"><a href="history.html"><i class="fa fa-check"></i><b>2</b> История развития геоинформационных систем</a></li>
+<li class="chapter" data-level="3" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>3</b> Обзор современных ГИС</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="overview.html"><a href="overview.html#foreign"><i class="fa fa-check"></i><b>3.1</b> Зарубежные ГИС</a></li>
+<li class="chapter" data-level="3.2" data-path="overview.html"><a href="overview.html#russian"><i class="fa fa-check"></i><b>3.2</b> Российские альтернативы</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="overview.html"><a href="overview.html#гис-панорама"><i class="fa fa-check"></i><b>3.2.1</b> ГИС Панорама</a></li>
+<li class="chapter" data-level="3.2.2" data-path="overview.html"><a href="overview.html#гис-аксиома"><i class="fa fa-check"></i><b>3.2.2</b> ГИС Аксиома</a></li>
+<li class="chapter" data-level="3.2.3" data-path="overview.html"><a href="overview.html#zulugis"><i class="fa fa-check"></i><b>3.2.3</b> ZuluGis</a></li>
+<li class="chapter" data-level="3.2.4" data-path="overview.html"><a href="overview.html#гис-ингео"><i class="fa fa-check"></i><b>3.2.4</b> ГИС Ингео</a></li>
+<li class="chapter" data-level="3.2.5" data-path="overview.html"><a href="overview.html#гис-терра"><i class="fa fa-check"></i><b>3.2.5</b> ГИС Терра</a></li>
+<li class="chapter" data-level="3.2.6" data-path="overview.html"><a href="overview.html#urbancs01-intro-9"><i class="fa fa-check"></i><b>3.2.6</b> UrbanCS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="formats.html"><a href="formats.html"><i class="fa fa-check"></i><b>4</b> Форматы данных, используемые в ГИС</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="formats.html"><a href="formats.html#vector"><i class="fa fa-check"></i><b>4.1</b> Векторные форматы данных</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="formats.html"><a href="formats.html#shape-файлы"><i class="fa fa-check"></i><b>4.1.1</b> Shape файлы</a></li>
+<li class="chapter" data-level="4.1.2" data-path="formats.html"><a href="formats.html#geojson"><i class="fa fa-check"></i><b>4.1.2</b> Geojson</a></li>
+<li class="chapter" data-level="4.1.3" data-path="formats.html"><a href="formats.html#geopackage"><i class="fa fa-check"></i><b>4.1.3</b> Geopackage</a></li>
+<li class="chapter" data-level="4.1.4" data-path="formats.html"><a href="formats.html#kml"><i class="fa fa-check"></i><b>4.1.4</b> KML</a></li>
+<li class="chapter" data-level="4.1.5" data-path="formats.html"><a href="formats.html#gpx"><i class="fa fa-check"></i><b>4.1.5</b> GPX</a></li>
+<li class="chapter" data-level="4.1.6" data-path="formats.html"><a href="formats.html#wkt"><i class="fa fa-check"></i><b>4.1.6</b> WKT</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="formats.html"><a href="formats.html#raster"><i class="fa fa-check"></i><b>4.2</b> Растровые форматы данных</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="formats.html"><a href="formats.html#geotiff"><i class="fa fa-check"></i><b>4.2.1</b> GeoTIFF</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="formats.html"><a href="formats.html#tiles"><i class="fa fa-check"></i><b>4.3</b> Тайловые данные</a></li>
+<li class="chapter" data-level="4.4" data-path="formats.html"><a href="formats.html#проект-qgis"><i class="fa fa-check"></i><b>4.4</b> Проект QGIS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>5</b> Старт работы</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="start.html"><a href="start.html#interface"><i class="fa fa-check"></i><b>5.1</b> Общие элементы интерфейса</a></li>
+<li class="chapter" data-level="5.2" data-path="start.html"><a href="start.html#basemap"><i class="fa fa-check"></i><b>5.2</b> Добавление подложки</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="start.html"><a href="start.html#QMS"><i class="fa fa-check"></i><b>5.2.1</b> Добавление подложки с помощью модуля QuickMapServices</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="osm.html"><a href="osm.html"><i class="fa fa-check"></i><b>6</b> Загрузка данных с OpenStreetMap</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="osm.html"><a href="osm.html#overpass"><i class="fa fa-check"></i><b>6.1</b> Сервис overpass-turbo</a></li>
+<li class="chapter" data-level="6.2" data-path="osm.html"><a href="osm.html#quickosm"><i class="fa fa-check"></i><b>6.2</b> Модуль QuickOSM</a></li>
+<li class="chapter" data-level="6.3" data-path="osm.html"><a href="osm.html#дополнительно"><i class="fa fa-check"></i><b>6.3</b> Дополнительно</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="georeferencing.html"><a href="georeferencing.html"><i class="fa fa-check"></i><b>7</b> Геопривязка растра</a></li>
+<li class="chapter" data-level="8" data-path="vectorisation.html"><a href="vectorisation.html"><i class="fa fa-check"></i><b>8</b> Векторизация</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="vectorisation.html"><a href="vectorisation.html#создание-нового-слоя-и-добавление-в-него-объектов"><i class="fa fa-check"></i><b>8.1</b> Создание нового слоя и добавление в него объектов</a></li>
+<li class="chapter" data-level="8.2" data-path="vectorisation.html"><a href="vectorisation.html#прилипание-объектов"><i class="fa fa-check"></i><b>8.2</b> Прилипание объектов</a></li>
+<li class="chapter" data-level="8.3" data-path="vectorisation.html"><a href="vectorisation.html#редактирование-объектов"><i class="fa fa-check"></i><b>8.3</b> Редактирование объектов</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="vectorisation.html"><a href="vectorisation.html#редактирование-формы-объектов"><i class="fa fa-check"></i><b>8.3.1</b> Редактирование формы объектов</a></li>
+<li class="chapter" data-level="8.3.2" data-path="vectorisation.html"><a href="vectorisation.html#перемещение-объекта"><i class="fa fa-check"></i><b>8.3.2</b> Перемещение объекта</a></li>
+<li class="chapter" data-level="8.3.3" data-path="vectorisation.html"><a href="vectorisation.html#поворот-объекта"><i class="fa fa-check"></i><b>8.3.3</b> Поворот объекта</a></li>
+<li class="chapter" data-level="8.3.4" data-path="vectorisation.html"><a href="vectorisation.html#разбивка-объекта"><i class="fa fa-check"></i><b>8.3.4</b> Разбивка объекта</a></li>
+<li class="chapter" data-level="8.3.5" data-path="vectorisation.html"><a href="vectorisation.html#преобразование-объекта-в-кольцо"><i class="fa fa-check"></i><b>8.3.5</b> Преобразование объекта в кольцо</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Геоинформатика и геоинформационные системы</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vectorisation" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number"> 8</span> Векторизация<a href="vectorisation.html#vectorisation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Векторизация</strong> - процесс получения векторных географических данных. Как правило, имеется ввиду процесс получения на основе исходных растровых данных (сканированные карты, информация по официальным запросам, градостроительная документация и прочее).</p>
+<div id="создание-нового-слоя-и-добавление-в-него-объектов" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Создание нового слоя и добавление в него объектов<a href="vectorisation.html#создание-нового-слоя-и-добавление-в-него-объектов" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Во всех предыдущих заданиях мы использовали уже готовые слои, которые просто добавляли в проект, но мы можем создавать и отрисовывать слои самостоятельно.</p>
+<p>Для того, чтобы создать новый векторный слой в строке меню нужно выбрать <strong>Файл - Создать слой - Создать новый Geopackage слой</strong>.</p>
+<p><img src="images/48.png" /></p>
+<p>После этого появится окно, в котором нужно задать имя файла, тип геометрии, систему координат, а также структуру таблицы атрибутов.</p>
+<p><img src="images/49.PNG" /></p>
+<p>В качестве примера рассмотрим отрисовку домов, в атрибутивной таблице будут два поля: адрес и количество проживающих.</p>
+<p><img src="images/50.PNG" /></p>
+<blockquote>
+<p>На этом этапе вы можете не создавать конкретную структуру таблицы атрибутов, так как вы всегда можете ее отредактировать позднее. По умолчанию будет создано 1 поле <strong>fid</strong>, которое будет заполнено автоматически номерами объектов.</p>
+<p>Рекомендую все файлы и названия полей делать латиницей, потому что QGIS может не всегда корректно работать с данными, путь к которым прописан русскими буквами, а также с русскими названиями полей.</p>
+<p>Также следует помнить, что названия файлов и слоев, а также названия полей в атрибутивной таблице лучше делать осмысленными, чтобы вы потом могли понять, что содержится в ваших данных.</p>
+</blockquote>
+<blockquote>
+<p>Если вы не уверены в том, какие атрибуты вам нужны, то помните, что вы всегда можете отредактировать таблицу атрибутов уже после создания слоя и отрисовки объектов.</p>
+</blockquote>
+<p>После того, как вы создадите слой, то он появится у вас в списке слоев, но, конечно, никаких объектов на карту не добавится, потому что они пока не отрисованы.</p>
+<p>Для начала отрисовки объектов в слое необходимо включить режим редактирования.</p>
+<p><img src="images/51.png" /></p>
+<p>После включения режима редактирования на панели инструментов станут активными кнопки создания объектов и редактирования вершин <img src="images/52.PNG" /> (так как у нас слой с площадными объектами, то предлагается только создания полигонов и их редактирование, если бы был другой тип геометрии инструменты были бы немного другими).</p>
+<p>Для начала отрисовки объекта нужно щелкнуть на первую точку полигона, а потом по всем поворотным, завершается отрисовка контура щелчком правой кнопкой мыши.</p>
+<p><img src="images/2021-12-01-12-46-06.gif" /></p>
+<p>По умолчанию в программе стоит настройка открывать окно ввода атрибутов для каждого созданного объекта.</p>
+<p><img src="images/53.PNG" /></p>
+<p>В этом окне можно ввести характеристики объектов сразу, либо оставить пустым, просто нажав кнопку ОК (если вы здесь нажмете кнопку Отмена, то объект не будет создан).</p>
+<p>Автоматическое появление формы ввода можно отключить в настройках программы.</p>
+<p><img src="images/54.PNG" /></p>
+</div>
+<div id="прилипание-объектов" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Прилипание объектов<a href="vectorisation.html#прилипание-объектов" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>При отрисовке некоторых объектов важно, чтобы между ними были общие точки, общие границы, не было наложений или наоборот дырок между объектами. Для того, чтобы соблюдать эти правила, нужно пользоваться инструментами прилипания.</p>
+<p><img src="images/55.png" /></p>
+<p>На панели инструментов прилипания доступны следующие функции (слева направо)</p>
+<p><img src="images/56.PNG" /></p>
+<ul>
+<li><p>разрешить прилипание;</p></li>
+<li><p>выбор слоев, для которых будет доступно прилипание: все слои - прилипание будет осуществляться с учетом объектов всех слоев, которые есть в проекте (даже невидимых в данный момент), активный слой - прилипание будет осуществляться только для объектов текущего слоя.</p></li>
+</ul>
+<p><img src="images/58.png" /></p>
+<ul>
+<li><p>тип объектов, к которым осуществляется прилипание (может быть выбрано сразу несколько вариантов):</p>
+<ul>
+<li><p>к вершинам - прилипание только к узловым точкам;</p></li>
+<li><p>к линиям - прилипание к любой точке линии;</p></li>
+<li><p>к поверхности - прилипание к любой точке внутри полигона;</p></li>
+<li><p>к центроиду - прилипание к геометрическому центру полигона;</p></li>
+<li><p>середина отрезка - прилипание только к середине линии;</p></li>
+<li><p>конечные точки линии - прилипание только к начальной или конечной точке линии.</p></li>
+</ul></li>
+</ul>
+<p><img src="images/59.png" /></p>
+<ul>
+<li><p>порог прилипания - то есть, в какой области вокруг курсора будет искаться объект для прилипания;</p></li>
+<li><p>топологическое редактирование позволяет сохранять общие границы между объектами. Если эта опция включена, то программа будет автоматически перестраивать общую границу для двух объектов (если таковая граница есть);</p></li>
+<li><p>допустимы ли наложения между объектами <img src="images/183.png" /></p></li>
+<li><p>разрешать прилипание к пересечениям - прилипание будет осуществляться к пересечениям двух объектов, даже если там нет вершины;</p></li>
+<li><p>трассирование (tracing) - позволяет ускорить привязку к линейным объектам, при включении этой опции вам не нужно будет прощелкивать по всей линии, достаточно будет нескольких точек (если установаить значение отступа offset, то можно построить линию, параллельную существующей);</p></li>
+<li><p>самоприлипание - позволяет осуществлять привязку отрисовываемого объекта к самому себе.</p></li>
+</ul>
+<p><img src="images/2021-12-01-13-20-37.gif" /></p>
+</div>
+<div id="редактирование-объектов" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Редактирование объектов<a href="vectorisation.html#редактирование-объектов" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="редактирование-формы-объектов" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Редактирование формы объектов<a href="vectorisation.html#редактирование-формы-объектов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Для редактирования формы объектов следует пользоваться инструментом работы с вершинами <img src="images/60.PNG" /></p>
+<p><img src="images/2021-12-01-13-25-36.gif" /></p>
+<p>Также для редактирования объектов есть целый ряд функций, представленных в пункте <strong>Правка</strong> — <strong>Редактировать геометрию</strong> строки меню.</p>
+<p><img src="images/61.png" /></p>
+</div>
+<div id="перемещение-объекта" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> Перемещение объекта<a href="vectorisation.html#перемещение-объекта" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="images/62.gif" /></p>
+</div>
+<div id="поворот-объекта" class="section level3 hasAnchor" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> Поворот объекта<a href="vectorisation.html#поворот-объекта" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="images/63.gif" /></p>
+</div>
+<div id="разбивка-объекта" class="section level3 hasAnchor" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> Разбивка объекта<a href="vectorisation.html#разбивка-объекта" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="images/64.gif" /></p>
+</div>
+<div id="преобразование-объекта-в-кольцо" class="section level3 hasAnchor" number="8.3.5">
+<h3><span class="header-section-number">8.3.5</span> Преобразование объекта в кольцо<a href="vectorisation.html#преобразование-объекта-в-кольцо" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="images/65.gif" /></p>
+<blockquote>
+<p>Более подробно с функциями редактирования векторных объектов можно ознакомиться в документации по <a href="https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#advanced-digitizing">ссылке</a></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="georeferencing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

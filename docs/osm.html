@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 6 Загрузка данных с OpenStreetMap | Геоинформатика и геоинформационные системы</title>
+  <meta name="description" content=" 6 Загрузка данных с OpenStreetMap | Геоинформатика и геоинформационные системы" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 6 Загрузка данных с OpenStreetMap | Геоинформатика и геоинформационные системы" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 6 Загрузка данных с OpenStreetMap | Геоинформатика и геоинформационные системы" />
+  
+  
+  
+
+<meta name="author" content="Балтыжакова Татьяна" />
+
+
+<meta name="date" content="2023-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="start.html"/>
+<link rel="next" href="georeferencing.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Геоинформатика и геоинформационные системы</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Общие сведения</a></li>
+<li class="chapter" data-level="2" data-path="history.html"><a href="history.html"><i class="fa fa-check"></i><b>2</b> История развития геоинформационных систем</a></li>
+<li class="chapter" data-level="3" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>3</b> Обзор современных ГИС</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="overview.html"><a href="overview.html#foreign"><i class="fa fa-check"></i><b>3.1</b> Зарубежные ГИС</a></li>
+<li class="chapter" data-level="3.2" data-path="overview.html"><a href="overview.html#russian"><i class="fa fa-check"></i><b>3.2</b> Российские альтернативы</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="overview.html"><a href="overview.html#гис-панорама"><i class="fa fa-check"></i><b>3.2.1</b> ГИС Панорама</a></li>
+<li class="chapter" data-level="3.2.2" data-path="overview.html"><a href="overview.html#гис-аксиома"><i class="fa fa-check"></i><b>3.2.2</b> ГИС Аксиома</a></li>
+<li class="chapter" data-level="3.2.3" data-path="overview.html"><a href="overview.html#zulugis"><i class="fa fa-check"></i><b>3.2.3</b> ZuluGis</a></li>
+<li class="chapter" data-level="3.2.4" data-path="overview.html"><a href="overview.html#гис-ингео"><i class="fa fa-check"></i><b>3.2.4</b> ГИС Ингео</a></li>
+<li class="chapter" data-level="3.2.5" data-path="overview.html"><a href="overview.html#гис-терра"><i class="fa fa-check"></i><b>3.2.5</b> ГИС Терра</a></li>
+<li class="chapter" data-level="3.2.6" data-path="overview.html"><a href="overview.html#urbancs01-intro-9"><i class="fa fa-check"></i><b>3.2.6</b> UrbanCS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="formats.html"><a href="formats.html"><i class="fa fa-check"></i><b>4</b> Форматы данных, используемые в ГИС</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="formats.html"><a href="formats.html#vector"><i class="fa fa-check"></i><b>4.1</b> Векторные форматы данных</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="formats.html"><a href="formats.html#shape-файлы"><i class="fa fa-check"></i><b>4.1.1</b> Shape файлы</a></li>
+<li class="chapter" data-level="4.1.2" data-path="formats.html"><a href="formats.html#geojson"><i class="fa fa-check"></i><b>4.1.2</b> Geojson</a></li>
+<li class="chapter" data-level="4.1.3" data-path="formats.html"><a href="formats.html#geopackage"><i class="fa fa-check"></i><b>4.1.3</b> Geopackage</a></li>
+<li class="chapter" data-level="4.1.4" data-path="formats.html"><a href="formats.html#kml"><i class="fa fa-check"></i><b>4.1.4</b> KML</a></li>
+<li class="chapter" data-level="4.1.5" data-path="formats.html"><a href="formats.html#gpx"><i class="fa fa-check"></i><b>4.1.5</b> GPX</a></li>
+<li class="chapter" data-level="4.1.6" data-path="formats.html"><a href="formats.html#wkt"><i class="fa fa-check"></i><b>4.1.6</b> WKT</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="formats.html"><a href="formats.html#raster"><i class="fa fa-check"></i><b>4.2</b> Растровые форматы данных</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="formats.html"><a href="formats.html#geotiff"><i class="fa fa-check"></i><b>4.2.1</b> GeoTIFF</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="formats.html"><a href="formats.html#tiles"><i class="fa fa-check"></i><b>4.3</b> Тайловые данные</a></li>
+<li class="chapter" data-level="4.4" data-path="formats.html"><a href="formats.html#проект-qgis"><i class="fa fa-check"></i><b>4.4</b> Проект QGIS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>5</b> Старт работы</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="start.html"><a href="start.html#interface"><i class="fa fa-check"></i><b>5.1</b> Общие элементы интерфейса</a></li>
+<li class="chapter" data-level="5.2" data-path="start.html"><a href="start.html#basemap"><i class="fa fa-check"></i><b>5.2</b> Добавление подложки</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="start.html"><a href="start.html#QMS"><i class="fa fa-check"></i><b>5.2.1</b> Добавление подложки с помощью модуля QuickMapServices</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="osm.html"><a href="osm.html"><i class="fa fa-check"></i><b>6</b> Загрузка данных с OpenStreetMap</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="osm.html"><a href="osm.html#overpass"><i class="fa fa-check"></i><b>6.1</b> Сервис overpass-turbo</a></li>
+<li class="chapter" data-level="6.2" data-path="osm.html"><a href="osm.html#quickosm"><i class="fa fa-check"></i><b>6.2</b> Модуль QuickOSM</a></li>
+<li class="chapter" data-level="6.3" data-path="osm.html"><a href="osm.html#дополнительно"><i class="fa fa-check"></i><b>6.3</b> Дополнительно</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="georeferencing.html"><a href="georeferencing.html"><i class="fa fa-check"></i><b>7</b> Геопривязка растра</a></li>
+<li class="chapter" data-level="8" data-path="vectorisation.html"><a href="vectorisation.html"><i class="fa fa-check"></i><b>8</b> Векторизация</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="vectorisation.html"><a href="vectorisation.html#создание-нового-слоя-и-добавление-в-него-объектов"><i class="fa fa-check"></i><b>8.1</b> Создание нового слоя и добавление в него объектов</a></li>
+<li class="chapter" data-level="8.2" data-path="vectorisation.html"><a href="vectorisation.html#прилипание-объектов"><i class="fa fa-check"></i><b>8.2</b> Прилипание объектов</a></li>
+<li class="chapter" data-level="8.3" data-path="vectorisation.html"><a href="vectorisation.html#редактирование-объектов"><i class="fa fa-check"></i><b>8.3</b> Редактирование объектов</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="vectorisation.html"><a href="vectorisation.html#редактирование-формы-объектов"><i class="fa fa-check"></i><b>8.3.1</b> Редактирование формы объектов</a></li>
+<li class="chapter" data-level="8.3.2" data-path="vectorisation.html"><a href="vectorisation.html#перемещение-объекта"><i class="fa fa-check"></i><b>8.3.2</b> Перемещение объекта</a></li>
+<li class="chapter" data-level="8.3.3" data-path="vectorisation.html"><a href="vectorisation.html#поворот-объекта"><i class="fa fa-check"></i><b>8.3.3</b> Поворот объекта</a></li>
+<li class="chapter" data-level="8.3.4" data-path="vectorisation.html"><a href="vectorisation.html#разбивка-объекта"><i class="fa fa-check"></i><b>8.3.4</b> Разбивка объекта</a></li>
+<li class="chapter" data-level="8.3.5" data-path="vectorisation.html"><a href="vectorisation.html#преобразование-объекта-в-кольцо"><i class="fa fa-check"></i><b>8.3.5</b> Преобразование объекта в кольцо</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Геоинформатика и геоинформационные системы</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="osm" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number"> 6</span> Загрузка данных с OpenStreetMap<a href="osm.html#osm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>OpenStreetMap (OSM)</strong> — проект, который создаёт и предоставляет свободные географические данные, дает возможность создавать карты любому пользователю. Каждый желающий может поучаствовать в проекте (загружать свои треки на сервер, дорисовывать общедоступную карту по спутниковым снимкам Bing, MapBox, DigitalGlobe (весь мир), IRS (запад России), SPOT4 (восток России) и SPOT (Белоруссия) от Космоснимки.ру, ASTER (Россия), OrbView-3 и другими) и использовать эти карты совершенно свободно, и бесплатно в отличие от многих других карт, даже бесплатных, свободное использование которых ограничено.</p>
+<p>Карты этого проекта очень широко используются как в некоммерческих целях, например, для исследовательских проектов, так и для коммерческих проектов, например, создания навигационных приложений.</p>
+<p>Вот очень любопытный <a href="http://shtosm.ru/all/vserossiyskaya-perepis-pod-ugrozoy/">прецедент</a> использования OSM в нашей стране.</p>
+<div id="overpass" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Сервис overpass-turbo<a href="osm.html#overpass" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Один из самых простых способов скачивания пространственных данных с OSM - это использование сервиса <a href="http://overpass-turbo.eu/" class="uri">http://overpass-turbo.eu/</a>.</p>
+<p>Есть еще вот такой <a href="https://yourmaps.io/">сервис</a> русскоязычный, но там довольно много ограничений в бесплатной версии.</p>
+<p>Подробная информация о сервисе <a href="https://wiki.openstreetmap.org/wiki/Overpass_turbo"><u>https://wiki.openstreetmap.org/wiki/Overpass_turbo</u></a></p>
+<p>Для создания запросов используется собственный язык запросов <strong>Overpass QL</strong> (Overpass Query Language)<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>.</p>
+<p>Есть несколько различных типов <em>формулировок</em> Overpass QL . Они сгруппированы в:</p>
+<ul>
+<li><p><em>Параметры,</em> которые являются необязательными глобальными переменными, устанавливаются в первом операторе запроса. Примерами <em>настроек</em> являются тайм-аут сервера для сервера Overpass API и формат вывода запроса Overpass QL.</p></li>
+<li><p><em>Операторы блока</em> : <em>операторы</em> блока группируют операторы Overpass QL вместе.</p></li>
+<li><p><em>Автономные запросы</em>: это самостоятельные полные утверждения. Они могут выполнять такие функции, как запрос к серверу Overpass API для создания набора; манипулирование содержимым существующего набора; или отправка конечных результатов запроса в место вывода. Автономные запросы сами по себе состоят из более мелких языковых компонентов Overpass QL, таких как оценщики, фильтры и операторы.</p></li>
+</ul>
+<p>На самом деле, чтобы составить запрос вам не обязательно знать все тонкости языка запросов. Вот основные моменты, которые необходимы для запроса:</p>
+<ul>
+<li>то, как объекты обозначаются в OSM - ключ и его значение;</li>
+<li>тип объектов (не обязательно, а только, если вы хотите выгружать конкретный тип объектов - точки, линии или полигоны);</li>
+<li>охват территории поиска - bounding box (по умолчанию задается по видимой части карты в правой половине окна, но можно задать непосредственно в запросе или выбрать вручную на карте).</li>
+</ul>
+<p>Подробная информация о том, какие объекты как <a href="https://wiki.openstreetmap.org/wiki/RU:%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B_%D0%BA%D0%B0%D1%80%D1%82%D1%8B">обозначаются в OpenStreetMap</a>. На этой странице можно искать нужный вам тип объектов, чтобы составить запрос.</p>
+<p>В левой части окна будет отображаться выполняемый запрос, а в правой результаты этого запроса. По умолчанию поиск осуществляется в той области, которая отображается в правой части окна (это можно скорректировать более сложными запросами, см. справку о сервисе).</p>
+<p><img src="images/13.PNG" /></p>
+<p>Для составления запросов используется помощник. Обратите внимание, что в нем сразу можно использовать логические операторы.</p>
+<p><img src="images/14.PNG" /></p>
+<blockquote>
+<p>Для примера можно найти и загрузить данные по многоквартирным жилым домам (<em>building=apartments</em>) и основным магистральным улицам (<em>highway=primary or highway=secondary or highway=tertiary,</em> то есть центральные магистрали, основные магистрали районов и основные микрорайонные или межмикрорайонные транзитные улицы) в Санкт-Петербурге.</p>
+</blockquote>
+<p>Первый запрос по поиску жилых домов выглядит примерно так. Обратите внимание, что я убрала пункт <strong><em>node</em></strong>, чтобы у нас не производился поиск точечных объектов.</p>
+<p><img src="images/15.PNG" /></p>
+<p>В результате запроса получим объекты на карте.</p>
+<blockquote>
+<p>По умолчанию поиск объектов производится внутри видимой области карты в правой части окна, но с помощью кнопок управления, расположенных в этой части окна вы можете выбрать, например, прямоугольную область поиска.</p>
+</blockquote>
+<p><img src="images/16.PNG" /></p>
+<p>В нижнем правом углу окна видно, сколько объектов какого типа было найдено, а сколько отображено.</p>
+<p>Эспортируем результаты себе на компьютер для дальнейшей работы с ними в QGIS. Для этого нужно нажать кнопку <strong>Экспорт</strong>, после чего появится диалоговое окно экспорта.</p>
+<p><img src="images/17.PNG" /></p>
+<p>Данные можно сохранить себе в формате geojson, о котором говорилось в предыдущем разделе <a href="formats.html#formats">4</a>, кроме этого формата данные также можно скачать в GPX, KML, в виде сырых данных, а также в виде данных для редактирования OSM.</p>
+<p>Предварителльно проверим свой файл в сервисе <a href="geojson.io">geojson.io</a>.</p>
+<p>Здесь достаточно будет просто перетащить ваш файл в правую часть окна. Если с файлом все в порядке и геометрия валидна, то на карте должны отобразиться объекты, а в правой части будет структура geojson файла.</p>
+<p><img src="images/18.PNG" /></p>
+<p>Откроем полученные данные в QGIS.</p>
+<p>Добавление слоя осуществляется через строку меню <strong>Слой — Добавить слой — Добавить векторный слой</strong>.</p>
+<p><img src="images/19.png" /></p>
+<p>Далее в диалоговом окне нужно указать путь к файлу.</p>
+<p><img src="images/20.PNG" /></p>
+<blockquote>
+<p>На самом деле не обязательно пользоваться строкой меню и ее пунктом Слой, все то же самое можно делать через окно Браузер в левой части интерфейса. Это скорее вопрос привычки.</p>
+<p>Но нужно помнить, что процесс открытия через строку меню более контролируемый.</p>
+</blockquote>
+<p>Если вы открыли новый проект, то в нем нужно выполнить перепроецирование на лету и добавить подложку. Как это сделать было описано в <a href="#basics"><strong>??</strong></a>.</p>
+<p>В результате должно получиться что-то подобное.</p>
+<div class="float">
+<img src="images/21.PNG" alt="Карта с добавленной подложкой и слоями жилых многоквартирных домов и супермаркетов" />
+<div class="figcaption">Карта с добавленной подложкой и слоями жилых многоквартирных домов и супермаркетов</div>
+</div>
+<div class="float">
+<img src="images/22.PNG" alt="Карта с добавленными слоями жилых многоквартирных домов, улиц и супермаркетами" />
+<div class="figcaption">Карта с добавленными слоями жилых многоквартирных домов, улиц и супермаркетами</div>
+</div>
+<p>В таблицах атрибутов будет содержаться информация об объектах, которая внесена в OSM.</p>
+<p>Открыть таблицу атрибутов слоя можно из контекстного меню, которое открывается правым кликом на название слоя.</p>
+<p><img src="images/23.png" /></p>
+<blockquote>
+<p><strong>Атрибуты</strong> - это те характеристики объектов, которые не являются пространственными.</p>
+</blockquote>
+<p>Таблица атрибутов открывается в отдельном окне.</p>
+<p><img src="images/24.PNG" /></p>
+<p>При необходимости мы можем добавлять и удалять отдельные поля, а также осуществлять операции между полями (об этом чуть подробнее будет на следующих занятиях).<br />
+Для добавления и удаления полей нужно включить режим редактирования таблицы в ее панели инструментов (значок <img src="images/25.PNG" />). После этого в панели инструментов таблицы станут активными кнопки добавления и удаления полей <img src="images/26.PNG" />.</p>
+<p>При удалении полей следует просто выбрать поля, которые вы собираетесь удалить в перечне (можно выделять сразу несколько названий полей, используя кнопки Shift и CTRL).</p>
+<p>При добавлении нового поля обязательно нужно задать его имя и тип данных, которые будут в нем храниться.<br />
+</p>
+</div>
+<div id="quickosm" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Модуль QuickOSM<a href="osm.html#quickosm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Кроме непосредственного использования сервиса можно скачивать данные OSM напрямую из QGIS с помощью модуля <strong>QuickOSM</strong>.</p>
+<p>Как устанавливать модули уже было рассказано ранее в <a href="start.html#QMS">5.2.1</a>.</p>
+<p><img src="images/27.png" /></p>
+<p>После установки модуля на панели инструментов появятся два значка <img src="images/28.png" />, левый из которых запускает окно поиска и загрузки данных из OSM, а правый позволяет удаленно подключаться к редактированию OSM через редактор JOSM<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>.</p>
+<p>Окно модуля по умолчанию открывается на вкладке <strong>Быстрый запрос</strong>.</p>
+<p><img src="images/29.png" /></p>
+<p>Кнопка <strong>Помощью с ключами/значениями</strong> открывает страницу с документацией модуля <a href="https://docs.3liz.org/QuickOSM/" class="uri">https://docs.3liz.org/QuickOSM/</a></p>
+<p>На второй строке находятся строка выбора пресетов (<strong>Preset</strong>) - готовый запросов по поиску объектов, поэтому если вы не очень уверены в том, как какие-либо объекты обозначаются, но знаете, какие вам нужны, можно попробовать найти уже готовый запрос здесь.</p>
+<p>Сразу под этой строкой находится таблица, где вы можете выбирать конкретные ключи и их значения.</p>
+<blockquote>
+<p>Запрос может включать в себя сразу несколько пар ключ/значение, но в этом случае части запроса должны быть связаны одним из логических операторов <strong><em>AND</em></strong> или <strong><em>OR</em></strong>.</p>
+<p>Главное отличие в применении этих операторов состоит в том, что при выборе <strong><em>AND</em></strong> поиск объектов будет осуществляться с учетом того, что все части запроса должны <em>выполняться одновременно</em>.</p>
+<p>При использовании оператора <strong><em>OR</em></strong> будет производится поиск объектов, <em>удовлетворяющих хотя бы одному условию из заданных</em>.</p>
+</blockquote>
+<p>Сразу под таблицей необходимо задать область поиска:</p>
+<p><img src="images/30.png" /></p>
+<ul>
+<li><p><strong>В</strong> - поиск в заданном населенном пункте;</p></li>
+<li><p><strong>Вокруг</strong> - поиск в заданном радиусе вокруг населенного пункта;</p></li>
+<li><p><strong>Покрывать холст</strong> - поиск в пределах видимой в основном окне программы части карты;</p></li>
+<li><p><strong>Покрывать слой</strong> - поиск в пределах охвата конкретного слоя (необходимо выбрать нужный слой);</p></li>
+<li><p><strong>Не пространственные</strong> - не заданная конкретная область, поэтому поиск будет производиться во всех данных OSM вне зависимости от местоположения.</p></li>
+</ul>
+<p>Свой запрос вы можете сохранить в виде пресета (<strong>Save query in a new preset</strong>), просмотреть его (<strong>Показать запрос</strong>) и <strong>Выполнить запрос</strong>.</p>
+<p>При нажатии на кнопку <strong>Показать запрос</strong> у вас откроется вкладка <strong>Запрос</strong>, где текст вашего запроса будет показан на языке запросов Overpass аналогично тому, как было рассмотрено выше в <a href="osm.html#overpass">6.1</a>.</p>
+<p><img src="images/31.png" /></p>
+<p>При желании, запрос можно писать прямо здесь.</p>
+<p>В пункте <strong>Query history</strong> на вкладке <strong>Быстрый запрос</strong> у вас будут отображаться уже сделанные вами запросы.</p>
+<p>В дополнительных настройках быстрого запроса можно указать:</p>
+<p><img src="images/32.png" /></p>
+<ul>
+<li><p>тип объекта для поиска;</p></li>
+<li><p>время ожидания при выполнении запроса;</p></li>
+<li><p>путь к папке для сохранения результатов запроса и формат сохранения данных, а также префикс файла для более простой идентификации.</p></li>
+</ul>
+<blockquote>
+<p><strong>!NB</strong> по умолчанию результаты запроса сохраняются во <em>временные слои</em>, обозначенные значком <img src="images/33.png" /></p>
+<p>Эти слои <em>существуют только во время текущего сеанса работы</em>, так что если вы планируете работать с ними далее, то их необходимо сохранить. Сделать это можно, кликнув правой кнопкой мыши на название слоя и выбрав пункт <strong>Сохранить на диск</strong> или <strong>Экспорт — Сохранить объекты как…</strong></p>
+<p><img src="images/34.png" /></p>
+</blockquote>
+<blockquote>
+<p>Также обратите внимание, что по одному и тому же запросу могут возвращаться объекты с разными типами геометрии, причем каждый из этих типов сохраняется в отдельный слой.</p>
+</blockquote>
+<p>На вкладке <strong>Map preset</strong> вы увидите существующий по умолчанию в модуле пресет Urban, а также свои сохраненные в виде пресетов запросы.</p>
+<p><img src="images/35.png" /></p>
+<p>Вкладка <strong>OSM файл</strong> позволяет загружать сырые данные из OSM для их редактирования.</p>
+<p>В <strong>Параметрах</strong> вы можете выбрать конкретный сервер Overpass для соединения и сервер Nominatim<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>.</p>
+<p><img src="images/36.png" /></p>
+<p>Если запросы осуществляются слишком медленно или не осуществляются вообще, выбор другого сервера может помочь решить эту проблему.</p>
+</div>
+<div id="дополнительно" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Дополнительно<a href="osm.html#дополнительно" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Кроме непосредственного использования Overpass можно воспользоваться <strong>OSM-GPT</strong> - сервисом на основе ChatGPT, который позволяет делать запросы с использованием естественного языка.</p>
+<p><a href="https://osm-gpt.rohitgautam.com.np/" class="uri">https://osm-gpt.rohitgautam.com.np/</a></p>
+<video width="540" height="360" controls>
+  <source src="images/255709707-f43a7a5e-3780-4421-a007-96afe55c683c.mp4" type="video/mp4">
+</video>
+<p>При желании более подробно ознакомиться с логикой построения запросов и языком запросов, вы можете воспользоваться интерактивным учебником <a href="https://osmlab.github.io/learnoverpass//en/" class="uri">https://osmlab.github.io/learnoverpass//en/</a></p>
+<p>Или взять уже готовые запросы из коллекции запросов <a href="https://osm-queries.ldodds.com/" class="uri">https://osm-queries.ldodds.com/</a></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="23">
+<li id="fn23"><p>Overpass API/Overpass QL <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL" class="uri">https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL</a><a href="osm.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<li id="fn24"><p><a href="https://josm.ru/" class="uri">https://josm.ru/</a><a href="osm.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p>В данном случае этот сервис нужен для осуществления геокодирования, то есть поиска положения населенного пункта по его названию<a href="osm.html#fnref25" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="start.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="georeferencing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
