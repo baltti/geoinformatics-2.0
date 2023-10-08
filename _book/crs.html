@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 9 Системы координат в ГИС | Геоинформатика и геоинформационные системы</title>
+  <meta name="description" content=" 9 Системы координат в ГИС | Геоинформатика и геоинформационные системы" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 9 Системы координат в ГИС | Геоинформатика и геоинформационные системы" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 9 Системы координат в ГИС | Геоинформатика и геоинформационные системы" />
+  
+  
+  
+
+<meta name="author" content="Балтыжакова Татьяна" />
+
+
+<meta name="date" content="2023-10-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="vectorisation.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Геоинформатика и геоинформационные системы</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Общие сведения</a></li>
+<li class="chapter" data-level="2" data-path="history.html"><a href="history.html"><i class="fa fa-check"></i><b>2</b> История развития геоинформационных систем</a></li>
+<li class="chapter" data-level="3" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>3</b> Обзор современных ГИС</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="overview.html"><a href="overview.html#foreign"><i class="fa fa-check"></i><b>3.1</b> Зарубежные ГИС</a></li>
+<li class="chapter" data-level="3.2" data-path="overview.html"><a href="overview.html#russian"><i class="fa fa-check"></i><b>3.2</b> Российские альтернативы</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="overview.html"><a href="overview.html#гис-панорама"><i class="fa fa-check"></i><b>3.2.1</b> ГИС Панорама</a></li>
+<li class="chapter" data-level="3.2.2" data-path="overview.html"><a href="overview.html#гис-аксиома"><i class="fa fa-check"></i><b>3.2.2</b> ГИС Аксиома</a></li>
+<li class="chapter" data-level="3.2.3" data-path="overview.html"><a href="overview.html#zulugis"><i class="fa fa-check"></i><b>3.2.3</b> ZuluGis</a></li>
+<li class="chapter" data-level="3.2.4" data-path="overview.html"><a href="overview.html#гис-ингео"><i class="fa fa-check"></i><b>3.2.4</b> ГИС Ингео</a></li>
+<li class="chapter" data-level="3.2.5" data-path="overview.html"><a href="overview.html#гис-терра"><i class="fa fa-check"></i><b>3.2.5</b> ГИС Терра</a></li>
+<li class="chapter" data-level="3.2.6" data-path="overview.html"><a href="overview.html#urbancs01-intro-9"><i class="fa fa-check"></i><b>3.2.6</b> UrbanCS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="formats.html"><a href="formats.html"><i class="fa fa-check"></i><b>4</b> Форматы данных, используемые в ГИС</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="formats.html"><a href="formats.html#vector"><i class="fa fa-check"></i><b>4.1</b> Векторные форматы данных</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="formats.html"><a href="formats.html#shape-файлы"><i class="fa fa-check"></i><b>4.1.1</b> Shape файлы</a></li>
+<li class="chapter" data-level="4.1.2" data-path="formats.html"><a href="formats.html#geojson"><i class="fa fa-check"></i><b>4.1.2</b> Geojson</a></li>
+<li class="chapter" data-level="4.1.3" data-path="formats.html"><a href="formats.html#geopackage"><i class="fa fa-check"></i><b>4.1.3</b> Geopackage</a></li>
+<li class="chapter" data-level="4.1.4" data-path="formats.html"><a href="formats.html#kml"><i class="fa fa-check"></i><b>4.1.4</b> KML</a></li>
+<li class="chapter" data-level="4.1.5" data-path="formats.html"><a href="formats.html#gpx"><i class="fa fa-check"></i><b>4.1.5</b> GPX</a></li>
+<li class="chapter" data-level="4.1.6" data-path="formats.html"><a href="formats.html#wkt"><i class="fa fa-check"></i><b>4.1.6</b> WKT</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="formats.html"><a href="formats.html#raster"><i class="fa fa-check"></i><b>4.2</b> Растровые форматы данных</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="formats.html"><a href="formats.html#geotiff"><i class="fa fa-check"></i><b>4.2.1</b> GeoTIFF</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="formats.html"><a href="formats.html#tiles"><i class="fa fa-check"></i><b>4.3</b> Тайловые данные</a></li>
+<li class="chapter" data-level="4.4" data-path="formats.html"><a href="formats.html#проект-qgis"><i class="fa fa-check"></i><b>4.4</b> Проект QGIS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>5</b> Старт работы</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="start.html"><a href="start.html#interface"><i class="fa fa-check"></i><b>5.1</b> Общие элементы интерфейса</a></li>
+<li class="chapter" data-level="5.2" data-path="start.html"><a href="start.html#basemap"><i class="fa fa-check"></i><b>5.2</b> Добавление подложки</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="start.html"><a href="start.html#QMS"><i class="fa fa-check"></i><b>5.2.1</b> Добавление подложки с помощью модуля QuickMapServices</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="osm.html"><a href="osm.html"><i class="fa fa-check"></i><b>6</b> Загрузка данных с OpenStreetMap</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="osm.html"><a href="osm.html#overpass"><i class="fa fa-check"></i><b>6.1</b> Сервис overpass-turbo</a></li>
+<li class="chapter" data-level="6.2" data-path="osm.html"><a href="osm.html#quickosm"><i class="fa fa-check"></i><b>6.2</b> Модуль QuickOSM</a></li>
+<li class="chapter" data-level="6.3" data-path="osm.html"><a href="osm.html#дополнительно"><i class="fa fa-check"></i><b>6.3</b> Дополнительно</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="georeferencing.html"><a href="georeferencing.html"><i class="fa fa-check"></i><b>7</b> Геопривязка растра</a></li>
+<li class="chapter" data-level="8" data-path="vectorisation.html"><a href="vectorisation.html"><i class="fa fa-check"></i><b>8</b> Векторизация</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="vectorisation.html"><a href="vectorisation.html#создание-нового-слоя-и-добавление-в-него-объектов"><i class="fa fa-check"></i><b>8.1</b> Создание нового слоя и добавление в него объектов</a></li>
+<li class="chapter" data-level="8.2" data-path="vectorisation.html"><a href="vectorisation.html#прилипание-объектов"><i class="fa fa-check"></i><b>8.2</b> Прилипание объектов</a></li>
+<li class="chapter" data-level="8.3" data-path="vectorisation.html"><a href="vectorisation.html#редактирование-объектов"><i class="fa fa-check"></i><b>8.3</b> Редактирование объектов</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="vectorisation.html"><a href="vectorisation.html#редактирование-формы-объектов"><i class="fa fa-check"></i><b>8.3.1</b> Редактирование формы объектов</a></li>
+<li class="chapter" data-level="8.3.2" data-path="vectorisation.html"><a href="vectorisation.html#перемещение-объекта"><i class="fa fa-check"></i><b>8.3.2</b> Перемещение объекта</a></li>
+<li class="chapter" data-level="8.3.3" data-path="vectorisation.html"><a href="vectorisation.html#поворот-объекта"><i class="fa fa-check"></i><b>8.3.3</b> Поворот объекта</a></li>
+<li class="chapter" data-level="8.3.4" data-path="vectorisation.html"><a href="vectorisation.html#разбивка-объекта"><i class="fa fa-check"></i><b>8.3.4</b> Разбивка объекта</a></li>
+<li class="chapter" data-level="8.3.5" data-path="vectorisation.html"><a href="vectorisation.html#преобразование-объекта-в-кольцо"><i class="fa fa-check"></i><b>8.3.5</b> Преобразование объекта в кольцо</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="crs.html"><a href="crs.html"><i class="fa fa-check"></i><b>9</b> Системы координат в ГИС</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="crs.html"><a href="crs.html#projections"><i class="fa fa-check"></i><b>9.1</b> Общие сведения о картографических проекциях</a></li>
+<li class="chapter" data-level="9.2" data-path="crs.html"><a href="crs.html#системы-координат"><i class="fa fa-check"></i><b>9.2</b> Системы координат</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="crs.html"><a href="crs.html#wkt-1"><i class="fa fa-check"></i><b>9.2.1</b> WKT</a></li>
+<li class="chapter" data-level="9.2.2" data-path="crs.html"><a href="crs.html#proj"><i class="fa fa-check"></i><b>9.2.2</b> proj</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="crs.html"><a href="crs.html#работа-с-системами-координат-в-qgis"><i class="fa fa-check"></i><b>9.3</b> Работа с системами координат в QGIS</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="crs.html"><a href="crs.html#project_crs"><i class="fa fa-check"></i><b>9.3.1</b> Система координат проекта</a></li>
+<li class="chapter" data-level="9.3.2" data-path="crs.html"><a href="crs.html#layer_crs"><i class="fa fa-check"></i><b>9.3.2</b> Система координат слоев</a></li>
+<li class="chapter" data-level="9.3.3" data-path="crs.html"><a href="crs.html#custom_crs"><i class="fa fa-check"></i><b>9.3.3</b> Добавление пользовательских систем координат</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Геоинформатика и геоинформационные системы</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="crs" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number"> 9</span> Системы координат в ГИС<a href="crs.html#crs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="projections" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Общие сведения о картографических проекциях<a href="crs.html#projections" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<video width="540" height="360" controls>
+  <source src="images/1601_027_AR_EN.mp4" type="video/mp4">
+</video>
+<p>источник: <a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/GOCE/Earth_s_gravity_revealed_in_unprecedented_detail" class="uri">https://www.esa.int/Applications/Observing_the_Earth/FutureEO/GOCE/Earth_s_gravity_revealed_in_unprecedented_detail</a></p>
+<p><strong>Картографическая проекция</strong> — это математически определенное отображение поверхности эллипсоида или шара (глобуса) на плоскость карты.</p>
+<p>Проекция устанавливает однозначное соответствие между геодезическими координатами точек (широтой и долготой) и их прямоугольными координатами на карте<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a>.</p>
+<p>При создании картографической проекции поверхность Земли (поверхность эллипсоида) проецируется, как правило, на плоскость, цилиндр, конус или многогранник. Таким образом, в зависимости от проецирующей поверхности все картографические проекции делятся на <strong>азимутальные, цилиндрические, конические</strong>.</p>
+<div class="float">
+<img src="images/conic%20projections.png" alt="Коническая проекция" />
+<div class="figcaption">Коническая проекция</div>
+</div>
+<div class="float">
+<img src="images/cilindrical%20projections.png" alt="Цилиндрические проекции" />
+<div class="figcaption">Цилиндрические проекции</div>
+</div>
+<div class="float">
+<img src="images/azimuthal%20projections.png" alt="Азимутальные проекции" />
+<div class="figcaption">Азимутальные проекции<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a></div>
+</div>
+<p>При этом точка проецирования может находиться как внутри вращающегося тела, так и снаружи или на противоположной части.</p>
+<p><img src="images/Stereographic-Projection-678x372.png" /></p>
+<blockquote>
+<p>На самом деле есть еще многогранные проекции, где поверхность Земли проецируется на многогранную фигуру и потом разворачивается (например, проекция <a href="https://desktop.arcgis.com/ru/arcmap/latest/map/projections/fuller.htm">Димаксион</a>, в которой поверхностью проецирования является икосаэдр) и псевдоцилиндирческими, но они значительно менее распространены.</p>
+</blockquote>
+<p>От выбора проекции зависит степень искажения размеров, длин и углов. Есть мнение, что проекции создают нашу картину мира, о чем есть великий эпизод из сериала <a href="https://www.kinopoisk.ru/series/94224/">West Wing</a>.</p>
+<iframe width="800" height="400" src="https://www.youtube.com/embed/vVX-PrBRtTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>И также достаточно известный выпуск выб-комикса <a href="https://xkcd.com/977/">xkcd</a>. Небольшой разбор комикса на русском можно почитать на <a href="https://habr.com/ru/post/458426/">хабре</a> или вот <a href="https://brilliantmaps.com/xkcd/">здесь</a> на английском.</p>
+<p><a href="https://xkcd.com/977/"><img src="images/map_projections.png" /></a></p>
+<p>Как уже было сказано чуть выше самой распространенной проекцией, с которой большинство из нас сталкивается практически ежедневно, является проекция Меркатора, так как она используется во всех навигационных приложениях и веб-картах. В этой проекции очень велики искажения размеров, особенно в приполярных областях, так как она является цилиндрической. То есть при ее создании земной шар помещается внутрь цилиндра, который соприкасается с ним на экваторе, после чего все проецируется на поверхность цилиндра и он разворачивается на плоскость.</p>
+<p><a href="https://archive.org/details/cu31924003898271/page/n56/mode/1up?view=theater"><img src="images/Map-Projections-Geoawesomeness.jpg" /></a></p>
+<p>Посмотреть, насколько искажаются размеры в привычной нам проекции можно на сайте <a href="https://thetruesize.com/">The True Size …</a></p>
+<p><img src="images/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA1.png" /></p>
+<p><img src="images/hm0vyrpnwwv61.png" /></p>
+<p>В картографии для оценки искажений проекций используют <strong>эллипсы Тиссо или эллипсы искажений</strong> - бесконечно малый эллипс в любой точке карты, являющийся отображением бесконечно малой окружности в соответствующей точке на поверхности земного эллипсоида или шара. <a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a></p>
+<p>Эллипс искажений - индикатриса, большая ось которой отражает направление наибольшего масштаба длин в данной точке, малая ось – направление наименьшего масштаба длин, а сжатие – искажение форм.</p>
+<div class="float">
+<img src="images/Tissot_world_from_space.png" width="723" alt="Эллипсы Тиссо на глобусе (не искаженные)" />
+<div class="figcaption">Эллипсы Тиссо на глобусе (не искаженные)</div>
+</div>
+<div class="float">
+<img src="images/Tissot_mercator.png" width="752" alt="Эллипсы Тиссо для проекции Меркатора" />
+<div class="figcaption">Эллипсы Тиссо для проекции Меркатора</div>
+</div>
+<div class="float">
+<img src="images/Tissot_Gall-Peters.png" width="752" alt="Эллипсы Тиссо для проекции Галля-Питерса" />
+<div class="figcaption">Эллипсы Тиссо для проекции Галля-Питерса</div>
+</div>
+<blockquote>
+<p>Очень важно помнить, что проекция сильно влияет на получившийся результат и восприятие карты, а также на различные измерения, осуществляемые по карте.</p>
+</blockquote>
+<p>Вот <a href="https://bl.ocks.org/syntagmatic/ba569633d51ebec6ec6e">тут</a> и <a href="https://map-projections.net/imglist.php">тут</a> можно посравнивать различные проекции между собой, или посоздавать <a href="https://engaging-data.com/country-centered-map-projections/">проекции, центрированные на конкретной стране</a>.</p>
+<p>А вот <a href="https://philogb.github.io/page/myriahedral/">здесь</a> можно посмотреть на различные нестандартные многоугольные проекции.</p>
+<p><img src="images/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA2.png" /></p>
+</div>
+<div id="системы-координат" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Системы координат<a href="crs.html#системы-координат" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Но в ГИС все не ограничивается только способом проецирования на плоскость, также важно как и задаются оси координат, где находится начало системы координат, какие единицы измерения используются, каков охват системы координат. Поэтому в ГИС говорят не просто о проекции, а о системе координат - <strong>coordinate reference system или crs</strong>.</p>
+<p>Система координат состоит из нескольких компонентов:</p>
+<ul>
+<li><p>датум - поверхность относимости; элипсоид, на который происходит проецирование поверхности Земли;</p></li>
+<li><p>поверхность, на которую проецируется изображение с элипсоида;</p></li>
+<li><p>оси и их направление, начало координат, единицы измерения и прочее.</p></li>
+</ul>
+<blockquote>
+<p>Следует помнить, что существует два основных типа систем координат: <strong>географические и прямоугольные (спроецированные)</strong>. В первых в качестве единиц измерения используются градусы, а во вторых - метрические единицы. Это имеет значение при измерениях и при ряде операций пространственного анализа.</p>
+</blockquote>
+<p>Сейчас используется единая классификация систем координат в ГИС - реестр EPSG, с которым можно ознакомиться на сайте <a href="epsg.io">epsg.io</a> (формально неофициальный источник, но гораздо более простой в использовании и понятный, чем <a href="https://epsg.org/home.html">официальный</a>).</p>
+<p>Этот реестр был изначально разработан European Petroleum survey group (собственно это и есть расшифровка аббревиатуры EPSG, но сейчас она существует уже сама по себе).</p>
+<p>Кроме него также могут использоваться данные других реестров систем координат, например, одноименный реестр компании ESRI.</p>
+<p>Наиболее часто встречающимися являются системы координат <code>EPSG:3857 - WGS 84 / Pseudo Mercator</code> и <code>EPSG:4326</code>. Это очень похожие системы координат, основанные на эллипсоиде WGS-84 и проекции Меркатора , главная разница между этими системами в единицах измерения: в первой в качестве единиц измерения используются метры, а во второй - градусы.</p>
+<p>Все имеющиеся в реестре системы координат уже заданы в QGIS, а также есть возможность создания пользовательских систем координат.</p>
+<p>При создании пользовательской системы координат можно составить ее описание в формате <strong>WKT</strong> (well-known text)<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a> или в формате <strong>proj.</strong></p>
+<p>Описания систем координат во всех применяемых в ГИС форматах можно посмотреть на странице соответствующей системы координат на <a href="epsg.io">epsg.io</a></p>
+<div id="wkt-1" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> WKT<a href="crs.html#wkt-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>В настоящее время используется вторая версия формата WKT - WKT 2. Этот формат начали применять в QGIS в версиях 3.х.</p>
+<p>Главная особенность данного формата в том, что он допускает возможность преобразований.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
+<p>Международный формат описания WKT закреплен <a href="https://www.ogc.org/standards/wkt-crs">стандартом</a> Open Geospatial Consortium.</p>
+<p>Описание системы координат состоит из ключевых слов и атрибутов этих ключевых слов.</p>
+<p>Ключевые слова указываются перед квадратными скобками, а атрибуты — внутри скобок.</p>
+<p>Кроме того, атрибуты могут содержать вложенные ключевые слова.</p>
+<p>Пример фрагмента описания системы координат:</p>
+<p><strong>KEYWORD1[attribute1,KEYWORD2[attribute2,attribute3]]</strong></p>
+<p>Пример описания системы координат <a href="https://epsg.io/3857">EPSG: 3857</a></p>
+<pre><code>PROJCS[&quot;WGS 84 / Pseudo-Mercator&quot;,
+    GEOGCS[&quot;WGS 84&quot;,
+        DATUM[&quot;WGS_1984&quot;,
+            SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,
+                AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],
+            AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],
+        PRIMEM[&quot;Greenwich&quot;,0,
+            AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],
+        UNIT[&quot;degree&quot;,0.0174532925199433,
+            AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],
+        AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],
+    PROJECTION[&quot;Mercator_1SP&quot;],
+    PARAMETER[&quot;central_meridian&quot;,0],
+    PARAMETER[&quot;scale_factor&quot;,1],
+    PARAMETER[&quot;false_easting&quot;,0],
+    PARAMETER[&quot;false_northing&quot;,0],
+    UNIT[&quot;metre&quot;,1,
+        AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],
+    AXIS[&quot;X&quot;,EAST],
+    AXIS[&quot;Y&quot;,NORTH],
+    EXTENSION[&quot;PROJ4&quot;,&quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs&quot;],
+    AUTHORITY[&quot;EPSG&quot;,&quot;3857&quot;]]</code></pre>
+<p><img src="images/wkt_3857.png" /></p>
+<p>При использовании местных систем координат возможны различные особенности описания системы координат<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a>:</p>
+<ul>
+<li><p>системы координат, отличающиеся только сдвигом по параметрам False easting, False northing;</p></li>
+<li><p>системы координат, основанные на нестандартных датумах (эллипсоидах);</p></li>
+<li><p>системы координат, требующие дополнительных аффинных преобразований.</p></li>
+</ul>
+</div>
+<div id="proj" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> proj<a href="crs.html#proj" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Описание в этом формате делается в виде строки с определенной структурой.</p>
+<p>Построено описание на основе библиотеки картографических проекций и в прочих сервисах и программах, работающих с этой библиотекой. На сайте библиотеки можно ознакомиться со <a href="https://proj.org/usage/projections.html">структурой строки</a> и <a href="https://proj.org/operations/projections/index.html">описаниями целого ряда проекций</a>.</p>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Parameter</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">+a</td>
+<td>Semimajor radius of the ellipsoid axis</td>
+</tr>
+<tr class="even">
+<td align="left">+axis</td>
+<td>Axis orientation</td>
+</tr>
+<tr class="odd">
+<td align="left">+b</td>
+<td>Semiminor radius of the ellipsoid axis</td>
+</tr>
+<tr class="even">
+<td align="left">+ellps</td>
+<td>Ellipsoid name (see <code>proj -le</code>)</td>
+</tr>
+<tr class="odd">
+<td align="left">+k</td>
+<td>Scaling factor (deprecated)</td>
+</tr>
+<tr class="even">
+<td align="left">+k_0</td>
+<td>Scaling factor</td>
+</tr>
+<tr class="odd">
+<td align="left">+lat_0</td>
+<td>Latitude of origin</td>
+</tr>
+<tr class="even">
+<td align="left">+lon_0</td>
+<td>Central meridian</td>
+</tr>
+<tr class="odd">
+<td align="left">+lon_wrap</td>
+<td>Center longitude to use for wrapping (see below)</td>
+</tr>
+<tr class="even">
+<td align="left">+over</td>
+<td>Allow longitude output outside -180 to 180 range, disables wrapping (see below)</td>
+</tr>
+<tr class="odd">
+<td align="left">+pm</td>
+<td>Alternate prime meridian (typically a city name, see below)</td>
+</tr>
+<tr class="even">
+<td align="left">+proj</td>
+<td>Projection name (see <code>proj -l</code>)</td>
+</tr>
+<tr class="odd">
+<td align="left">+units</td>
+<td>meters, US survey feet, etc.</td>
+</tr>
+<tr class="even">
+<td align="left">+vunits</td>
+<td>vertical units.</td>
+</tr>
+<tr class="odd">
+<td align="left">+x_0</td>
+<td>False easting</td>
+</tr>
+<tr class="even">
+<td align="left">+y_0</td>
+<td>False northing</td>
+</tr>
+</tbody>
+</table>
+<p>Пример описания системы координат <a href="https://epsg.io/3857">EPSG: 3857</a></p>
+<pre><code>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</code></pre>
+<p><img src="images/proj_3857.png" /></p>
+<p>Для подбора подходящей системы координат можно пользоваться сервисом <a href="http://projectionwizard.org/">Projection wizard</a>.</p>
+</div>
+</div>
+<div id="работа-с-системами-координат-в-qgis" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Работа с системами координат в QGIS<a href="crs.html#работа-с-системами-координат-в-qgis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="project_crs" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Система координат проекта<a href="crs.html#project_crs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Система координат проекта отображается в правом нижнем углу основного окна программы.</p>
+<p><img src="images/66.png" /></p>
+<p>После нажатия на эту кнопку откроется окно свойств проекта на вкладке <strong>Система координат</strong>.</p>
+<p><img src="images/67.png" /></p>
+<p>В этом окне можно выбрать нужную систему координат.</p>
+<blockquote>
+<p>Изменение системы координат проекта в QGIS называется <strong>“перепроецированием на лету”</strong> и фактически меняет только то, как все ваши слои отображаются на экране\карте.</p>
+<p><strong>!!NB</strong> эта операция не меняет системы координат слоев</p>
+</blockquote>
+<blockquote>
+<p>Все ваши слои вне зависимости от их систем координат будут отображаться на экране в системе координат проекта.</p>
+</blockquote>
+</div>
+<div id="layer_crs" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Система координат слоев<a href="crs.html#layer_crs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Систему координат конкретного слоя можно посмотреть в свойствах слоя. Для того чтобы их открыть, нужно либо дважды кликнуть на название слоя, либо кликнуть на название слоя правой кнопкой мыши и выбрать в открывшемся конктекстном меню пункт <strong>Свойства</strong>.</p>
+<p><img src="images/68.png" /></p>
+<p>Для измения системы координат конкретного слоя необходимо пользоваться инструментом <strong>Панели инструментов анализа - Перепроецировать слой</strong>.</p>
+<p>Панель инструментов анализа можно открыть через строку меню <strong>Вид — Панели — Инструменты анализа</strong>.</p>
+<p><img src="images/69.png" /></p>
+<p>Нужная вам панель откроется в правой части интерфейса.</p>
+<p><img src="images/70.png" /></p>
+<p>Нужный вам инструмент находится в группе <strong>Вектор - Общие инструменты</strong>.</p>
+<p><img src="images/71.png" /></p>
+<p>После запуска вы увидите диалоговое окно, в котором нужно выбрать слой для перепроецирования, целевую систему координат (то есть ту систему координат, которую вы хотите получить) и вариант сохранения.</p>
+<p><img src="images/72.png" /></p>
+<p>Для выбора целевой системы координат из всех доступных вам в программе нужно нажать <img src="images/73.png" /> и в открывшемся окне из каталога выбрать нужную вам систему координат.</p>
+<p><img src="images/74.png" /></p>
+<p>По умолчанию результат сохраняется во временный файл, но вы можете выбрать нужный вам вариант сохранения.</p>
+<p><img src="images/75.png" /></p>
+<blockquote>
+<p>Обратите внимание, что полученный результат будет выглядеть точно также, как исходный слой, так как <strong>отображение всех слоев вне зависимости от их систем координат происходит в системе координат проекта.</strong></p>
+<p><strong><em>При перепроецировании слоя происходит пересчет координат объектов из одной системы координат в другую</em></strong>. Вы можете проверить в свойствах слоя, что система координат действительно изменилась.</p>
+</blockquote>
+<blockquote>
+<p>Есть еще два инструмента, которые часто ошибочно принимают за перепроецирование - <strong>Задать проекцию слоя</strong> и <strong>Назначить проекцию</strong>.</p>
+<p>Их принципиальное отличие от перепроецирования в том, что <strong><em>при их использовании не происходит пересчет координат, а только меняются параметры системы координат в файле слоя</em></strong>. То есть здесь происходит просто переопределение системы координат.</p>
+<p><em>Как правило, эти инструменты используются тогда, когда у слоя не задана система координат или задана неверно.</em></p>
+</blockquote>
+</div>
+<div id="custom_crs" class="section level3 hasAnchor" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Добавление пользовательских систем координат<a href="crs.html#custom_crs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>В каталоге систем координат QGIS содержится порядка 5000 тысяч описаний систем координат, однако иногда их использования недостаточно, тогда вы можете добавить в каталог свою пользовательскую систему координат. Это можно сделать через строку меню <strong>Настройки — Пользовательские проекции</strong>.</p>
+<p><img src="images/76.png" /></p>
+<p>После этого вам откроется окно, в котором можно задать параметры нужной вам системы координат в формате WKT или proj.</p>
+<p><img src="images/77.png" /></p>
+<blockquote>
+<p>Описание параметров различных систем координат можно найти в открытых источниках.</p>
+</blockquote>
+<p><img src="images/78.png" /></p>
+<p>После добавления ваша система координат станет доступна в каталоге как для перепроецирования на лету, так и для перепроецирования слоев в разделе Пользовательские системы координат.</p>
+<p><img src="images/79.png" /></p>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="26">
+<li id="fn26"><p>Берлянт А. М. Картография: Учебник для вузов. — М.: Аспект Пресс, 2002.- 336 с.<a href="crs.html#fnref26" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p><a href="http://desktop.arcgis.com/ru/arcmap/10.3/guide-books/map-projections/projection-types.htm" class="uri">http://desktop.arcgis.com/ru/arcmap/10.3/guide-books/map-projections/projection-types.htm</a><a href="crs.html#fnref27" class="footnote-back">↩︎</a></p></li>
+<li id="fn28"><p><a href="http://www.gisa.ru/13458.html" class="uri">http://www.gisa.ru/13458.html</a><a href="crs.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<li id="fn29"><p>так же называется еще и один из векторных форматов данных - см. <a href="formats.html#formats">4</a><a href="crs.html#fnref29" class="footnote-back">↩︎</a></p></li>
+<li id="fn30"><p>Местные системы координат в WKT 2 <a href="https://gis-lab.info/qa/msk-wkt2.html" class="uri">https://gis-lab.info/qa/msk-wkt2.html</a><a href="crs.html#fnref30" class="footnote-back">↩︎</a></p></li>
+<li id="fn31"><p>Местные системы координат в WKT 2 <a href="https://gis-lab.info/qa/msk-wkt2.html" class="uri">https://gis-lab.info/qa/msk-wkt2.html</a><a href="crs.html#fnref31" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vectorisation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

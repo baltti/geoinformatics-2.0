@@ -1,0 +1,31 @@
+{
+    "id": "34E43DCB",
+    "path": "C:/Users/baltt/Desktop/geoinformatics-2.0/04-osm.Rmd",
+    "project_path": "04-osm.Rmd",
+    "type": "r_markdown",
+    "hash": "4062267596",
+    "contents": "",
+    "dirty": false,
+    "created": 1696502960892.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "0",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "8,0",
+        "scrollLine": "192",
+        "rmdVisualModeLocation": "5284:5600"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1696504018,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1696504018294,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -39,3 +39,12 @@ vectorisation
 поворот-объекта
 разбивка-объекта
 преобразование-объекта-в-кольцо
+crs
+projections
+системы-координат
+wkt-1
+proj
+работа-с-системами-координат-в-qgis
+project_crs
+layer_crs
+custom_crs
