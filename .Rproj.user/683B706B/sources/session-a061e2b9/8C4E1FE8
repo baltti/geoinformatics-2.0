@@ -3,7 +3,7 @@
     "path": "~/Desktop/gravity model/geoinformatics-2.0/05-georeferencing.Rmd",
     "project_path": "05-georeferencing.Rmd",
     "type": "r_markdown",
-    "hash": "3331870983",
+    "hash": "3762549379",
     "contents": "",
     "dirty": false,
     "created": 1739781747311.0,
@@ -11,14 +11,21 @@
     "relative_order": 2,
     "properties": {
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "0",
+        "rmdVisualModeLocation": "1931:1061",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "0,0",
+        "scrollLine": "46"
     },
     "folds": "",
-    "lastKnownWriteTime": 1739781665,
+    "lastKnownWriteTime": 1744358905,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1739781665,
+    "last_content_update": 1744358905806,
     "read_only": false,
     "read_only_alternatives": []
 }

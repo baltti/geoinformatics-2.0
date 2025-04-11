@@ -1,0 +1,31 @@
+{
+    "id": "C4F0E014",
+    "path": "~/Desktop/gravity model/geoinformatics-2.0/06-vectorisation.Rmd",
+    "project_path": "06-vectorisation.Rmd",
+    "type": "r_markdown",
+    "hash": "3842623933",
+    "contents": "",
+    "dirty": false,
+    "created": 1744358952815.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "rmdVisualMode": "true",
+        "rmdVisualModeLocation": "6209:14382",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "0",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "120,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1744359394,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1744359394196,
+    "read_only": false,
+    "read_only_alternatives": []
+}

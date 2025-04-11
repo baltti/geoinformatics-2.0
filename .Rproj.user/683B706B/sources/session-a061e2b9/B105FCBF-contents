@@ -7,6 +7,7 @@
   <source src="images/1601_027_AR_EN.mp4" type="video/mp4">
 </video>
 ```
+
 источник: <https://www.esa.int/Applications/Observing_the_Earth/FutureEO/GOCE/Earth_s_gravity_revealed_in_unprecedented_detail>
 
 **Картографическая проекция** --- это математически определенное отображение поверхности эллипсоида или шара (глобуса) на плоскость карты.
@@ -38,6 +39,7 @@
 ```{=html}
 <iframe width="800" height="400" src="https://www.youtube.com/embed/vVX-PrBRtTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
+
 И также достаточно известный выпуск выб-комикса [xkcd](https://xkcd.com/977/). Небольшой разбор комикса на русском можно почитать на [хабре](https://habr.com/ru/post/458426/) или вот [здесь](https://brilliantmaps.com/xkcd/) на английском.
 
 [![](images/map_projections.png)](https://xkcd.com/977/)
@@ -78,11 +80,11 @@
 
 Система координат состоит из нескольких компонентов:
 
--   датум - поверхность относимости; элипсоид, на который происходит проецирование поверхности Земли;
+-   *датум* - поверхность относимости; элипсоид, на который происходит проецирование поверхности Земли;
 
--   поверхность, на которую проецируется изображение с элипсоида;
+-   *поверхность*, на которую проецируется изображение с элипсоида;
 
--   оси и их направление, начало координат, единицы измерения и прочее.
+-   *оси* и их направление, начало координат, единицы измерения и прочее.
 
 > Следует помнить, что существует два основных типа систем координат: **географические и прямоугольные (спроецированные)**. В первых в качестве единиц измерения используются градусы, а во вторых - метрические единицы. Это имеет значение при измерениях и при ряде операций пространственного анализа.
 
@@ -153,7 +155,7 @@ PROJCS["WGS 84 / Pseudo-Mercator",
 
 При использовании местных систем координат возможны различные особенности описания системы координат[^07-crs-7]:
 
-[^07-crs-7]: Местные системы координат в WKT 2 https://gis-lab.info/qa/msk-wkt2.html
+[^07-crs-7]: Местные системы координат в WKT 2 <https://gis-lab.info/qa/msk-wkt2.html>
 
 -   системы координат, отличающиеся только сдвигом по параметрам False easting, False northing;
 
@@ -167,24 +169,24 @@ PROJCS["WGS 84 / Pseudo-Mercator",
 
 Построено описание на основе библиотеки картографических проекций и в прочих сервисах и программах, работающих с этой библиотекой. На сайте библиотеки можно ознакомиться со [структурой строки](https://proj.org/usage/projections.html) и [описаниями целого ряда проекций](https://proj.org/operations/projections/index.html).
 
-| **Parameter** | **Description**                                                                 |
-|:-------------------|----------------------------------------------------|
-| +a            | Semimajor radius of the ellipsoid axis                                          |
-| +axis         | Axis orientation                                                                |
-| +b            | Semiminor radius of the ellipsoid axis                                          |
-| +ellps        | Ellipsoid name (see `proj -le`)                                                 |
-| +k            | Scaling factor (deprecated)                                                     |
-| +k_0          | Scaling factor                                                                  |
-| +lat_0        | Latitude of origin                                                              |
-| +lon_0        | Central meridian                                                                |
-| +lon_wrap     | Center longitude to use for wrapping (see below)                                |
-| +over         | Allow longitude output outside -180 to 180 range, disables wrapping (see below) |
-| +pm           | Alternate prime meridian (typically a city name, see below)                     |
-| +proj         | Projection name (see `proj -l`)                                                 |
-| +units        | meters, US survey feet, etc.                                                    |
-| +vunits       | vertical units.                                                                 |
-| +x_0          | False easting                                                                   |
-| +y_0          | False northing                                                                  |
+| **Parameter** | **Description** |
+|:--------------------|---------------------------------------------------|
+| +a | Semimajor radius of the ellipsoid axis |
+| +axis | Axis orientation |
+| +b | Semiminor radius of the ellipsoid axis |
+| +ellps | Ellipsoid name (see `proj -le`) |
+| +k | Scaling factor (deprecated) |
+| +k_0 | Scaling factor |
+| +lat_0 | Latitude of origin |
+| +lon_0 | Central meridian |
+| +lon_wrap | Center longitude to use for wrapping (see below) |
+| +over | Allow longitude output outside -180 to 180 range, disables wrapping (see below) |
+| +pm | Alternate prime meridian (typically a city name, see below) |
+| +proj | Projection name (see `proj -l`) |
+| +units | meters, US survey feet, etc. |
+| +vunits | vertical units. |
+| +x_0 | False easting |
+| +y_0 | False northing |
 
 Пример описания системы координат [EPSG: 3857](https://epsg.io/3857)
 

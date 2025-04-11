@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 9 Автоматическая векторизация | Геоинформатика и геоинформационные системы</title>
+  <meta name="description" content=" 9 Автоматическая векторизация | Геоинформатика и геоинформационные системы" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 9 Автоматическая векторизация | Геоинформатика и геоинформационные системы" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 9 Автоматическая векторизация | Геоинформатика и геоинформационные системы" />
+  
+  
+  
+
+<meta name="author" content="Балтыжакова Татьяна" />
+
+
+<meta name="date" content="2025-04-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="vectorisation.html"/>
+<link rel="next" href="crs.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Геоинформатика и геоинформационные системы</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Общие сведения</a></li>
+<li class="chapter" data-level="2" data-path="history.html"><a href="history.html"><i class="fa fa-check"></i><b>2</b> История развития геоинформационных систем</a></li>
+<li class="chapter" data-level="3" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>3</b> Обзор современных ГИС</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="overview.html"><a href="overview.html#foreign"><i class="fa fa-check"></i><b>3.1</b> Зарубежные ГИС</a></li>
+<li class="chapter" data-level="3.2" data-path="overview.html"><a href="overview.html#russian"><i class="fa fa-check"></i><b>3.2</b> Российские альтернативы</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="06-vectorisation.html"><a href="#%D0%B3%D0%B8%D1%81-%D0%BF%D0%B0%D0%BD%D0%BE%D1%80%D0%B0%D0%BC%D0%B0"><i class="fa fa-check"></i><b>3.2.1</b> ГИС Панорама</a></li>
+<li class="chapter" data-level="3.2.2" data-path="06-vectorisation.html"><a href="#%D0%B3%D0%B8%D1%81-%D0%B0%D0%BA%D1%81%D0%B8%D0%BE%D0%BC%D0%B0"><i class="fa fa-check"></i><b>3.2.2</b> ГИС Аксиома</a></li>
+<li class="chapter" data-level="3.2.3" data-path="overview.html"><a href="overview.html#zulugis"><i class="fa fa-check"></i><b>3.2.3</b> ZuluGis</a></li>
+<li class="chapter" data-level="3.2.4" data-path="06-vectorisation.html"><a href="#%D0%B3%D0%B8%D1%81-%D0%B8%D0%BD%D0%B3%D0%B5%D0%BE"><i class="fa fa-check"></i><b>3.2.4</b> ГИС Ингео</a></li>
+<li class="chapter" data-level="3.2.5" data-path="06-vectorisation.html"><a href="#%D0%B3%D0%B8%D1%81-%D1%82%D0%B5%D1%80%D1%80%D0%B0"><i class="fa fa-check"></i><b>3.2.5</b> ГИС Терра</a></li>
+<li class="chapter" data-level="3.2.6" data-path="overview.html"><a href="overview.html#urbancs01-intro-9"><i class="fa fa-check"></i><b>3.2.6</b> UrbanCS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="formats.html"><a href="formats.html"><i class="fa fa-check"></i><b>4</b> Форматы данных, используемые в ГИС</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="formats.html"><a href="formats.html#vector"><i class="fa fa-check"></i><b>4.1</b> Векторные форматы данных</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="06-vectorisation.html"><a href="#shape-%D1%84%D0%B0%D0%B9%D0%BB%D1%8B"><i class="fa fa-check"></i><b>4.1.1</b> Shape файлы</a></li>
+<li class="chapter" data-level="4.1.2" data-path="formats.html"><a href="formats.html#geojson"><i class="fa fa-check"></i><b>4.1.2</b> Geojson</a></li>
+<li class="chapter" data-level="4.1.3" data-path="formats.html"><a href="formats.html#geopackage"><i class="fa fa-check"></i><b>4.1.3</b> Geopackage</a></li>
+<li class="chapter" data-level="4.1.4" data-path="formats.html"><a href="formats.html#kml"><i class="fa fa-check"></i><b>4.1.4</b> KML</a></li>
+<li class="chapter" data-level="4.1.5" data-path="formats.html"><a href="formats.html#gpx"><i class="fa fa-check"></i><b>4.1.5</b> GPX</a></li>
+<li class="chapter" data-level="4.1.6" data-path="formats.html"><a href="formats.html#wkt"><i class="fa fa-check"></i><b>4.1.6</b> WKT</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="formats.html"><a href="formats.html#raster"><i class="fa fa-check"></i><b>4.2</b> Растровые форматы данных</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="formats.html"><a href="formats.html#geotiff"><i class="fa fa-check"></i><b>4.2.1</b> GeoTIFF</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="formats.html"><a href="formats.html#tiles"><i class="fa fa-check"></i><b>4.3</b> Тайловые данные</a></li>
+<li class="chapter" data-level="4.4" data-path="06-vectorisation.html"><a href="#%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-qgis"><i class="fa fa-check"></i><b>4.4</b> Проект QGIS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>5</b> Старт работы</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="start.html"><a href="start.html#interface"><i class="fa fa-check"></i><b>5.1</b> Общие элементы интерфейса</a></li>
+<li class="chapter" data-level="5.2" data-path="start.html"><a href="start.html#basemap"><i class="fa fa-check"></i><b>5.2</b> Добавление подложки</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="start.html"><a href="start.html#QMS"><i class="fa fa-check"></i><b>5.2.1</b> Добавление подложки с помощью модуля QuickMapServices</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="osm.html"><a href="osm.html"><i class="fa fa-check"></i><b>6</b> Загрузка данных с OpenStreetMap</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="osm.html"><a href="osm.html#overpass"><i class="fa fa-check"></i><b>6.1</b> Сервис overpass-turbo</a></li>
+<li class="chapter" data-level="6.2" data-path="osm.html"><a href="osm.html#quickosm"><i class="fa fa-check"></i><b>6.2</b> Модуль QuickOSM</a></li>
+<li class="chapter" data-level="6.3" data-path="06-vectorisation.html"><a href="#%D0%B4%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE"><i class="fa fa-check"></i><b>6.3</b> Дополнительно</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="georeferencing.html"><a href="georeferencing.html"><i class="fa fa-check"></i><b>7</b> Геопривязка растра</a></li>
+<li class="chapter" data-level="8" data-path="vectorisation.html"><a href="vectorisation.html"><i class="fa fa-check"></i><b>8</b> Векторизация</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="06-vectorisation.html"><a href="#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D1%81%D0%BB%D0%BE%D1%8F-%D0%B8-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D0%BD%D0%B5%D0%B3%D0%BE-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2"><i class="fa fa-check"></i><b>8.1</b> Создание нового слоя и добавление в него объектов</a></li>
+<li class="chapter" data-level="8.2" data-path="06-vectorisation.html"><a href="#%D0%BF%D1%80%D0%B8%D0%BB%D0%B8%D0%BF%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2"><i class="fa fa-check"></i><b>8.2</b> Прилипание объектов</a></li>
+<li class="chapter" data-level="8.3" data-path="06-vectorisation.html"><a href="#%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2"><i class="fa fa-check"></i><b>8.3</b> Редактирование объектов</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="06-vectorisation.html"><a href="#%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%84%D0%BE%D1%80%D0%BC%D1%8B-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2"><i class="fa fa-check"></i><b>8.3.1</b> Редактирование формы объектов</a></li>
+<li class="chapter" data-level="8.3.2" data-path="06-vectorisation.html"><a href="#%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0"><i class="fa fa-check"></i><b>8.3.2</b> Перемещение объекта</a></li>
+<li class="chapter" data-level="8.3.3" data-path="06-vectorisation.html"><a href="#%D0%BF%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D1%82-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0"><i class="fa fa-check"></i><b>8.3.3</b> Поворот объекта</a></li>
+<li class="chapter" data-level="8.3.4" data-path="06-vectorisation.html"><a href="#%D1%80%D0%B0%D0%B7%D0%B1%D0%B8%D0%B2%D0%BA%D0%B0-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0"><i class="fa fa-check"></i><b>8.3.4</b> Разбивка объекта</a></li>
+<li class="chapter" data-level="8.3.5" data-path="06-vectorisation.html"><a href="#%D0%BF%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0-%D0%B2-%D0%BA%D0%BE%D0%BB%D1%8C%D1%86%D0%BE"><i class="fa fa-check"></i><b>8.3.5</b> Преобразование объекта в кольцо</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="06-vectorisation.html"><a href="#%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F"><i class="fa fa-check"></i><b>9</b> Автоматическая векторизация</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="06-vectorisation.html"><a href="#%D0%B2%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D1%81%D1%82%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B0-qgis"><i class="fa fa-check"></i><b>9.1</b> Встроенные стредства QGIS</a></li>
+<li class="chapter" data-level="9.2" data-path="06-vectorisation.html"><a href="#%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-bunting-labs-ai"><i class="fa fa-check"></i><b>9.2</b> Модуль Bunting labs AI</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="crs.html"><a href="crs.html"><i class="fa fa-check"></i><b>10</b> Системы координат в ГИС</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="crs.html"><a href="crs.html#projections"><i class="fa fa-check"></i><b>10.1</b> Общие сведения о картографических проекциях</a></li>
+<li class="chapter" data-level="10.2" data-path="06-vectorisation.html"><a href="#%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B-%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82"><i class="fa fa-check"></i><b>10.2</b> Системы координат</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="crs.html"><a href="crs.html#wkt-1"><i class="fa fa-check"></i><b>10.2.1</b> WKT</a></li>
+<li class="chapter" data-level="10.2.2" data-path="crs.html"><a href="crs.html#proj"><i class="fa fa-check"></i><b>10.2.2</b> proj</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="06-vectorisation.html"><a href="#%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%D0%BC%D0%B8-%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82-%D0%B2-qgis"><i class="fa fa-check"></i><b>10.3</b> Работа с системами координат в QGIS</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="crs.html"><a href="crs.html#project_crs"><i class="fa fa-check"></i><b>10.3.1</b> Система координат проекта</a></li>
+<li class="chapter" data-level="10.3.2" data-path="crs.html"><a href="crs.html#layer_crs"><i class="fa fa-check"></i><b>10.3.2</b> Система координат слоев</a></li>
+<li class="chapter" data-level="10.3.3" data-path="crs.html"><a href="crs.html#custom_crs"><i class="fa fa-check"></i><b>10.3.3</b> Добавление пользовательских систем координат</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Геоинформатика и геоинформационные системы</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="автоматическая-векторизация" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number"> 9</span> Автоматическая векторизация<a href="#%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="встроенные-стредства-qgis" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Встроенные стредства QGIS<a href="#%D0%B2%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D1%81%D1%82%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B0-qgis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>По умолчанию в QGIS есть инструмент преобразования растра в вектор, то есть автоматической векторизации.</p>
+<p>Этот инструмент может быть запущен из строки меню <em>Растр</em> <span class="math inline">\(\longrightarrow\)</span> <em>Преобразование</em> <span class="math inline">\(\longrightarrow\)</span> <em>Создание полигонов (растр в вектор)</em>.</p>
+<p><img src="images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-03-03%20%D0%B2%2015.04.05.png" fig-align="center" /></p>
+<p>С документацией можно ознакомиться по <a href="https://docs.qgis.org/3.40/en/docs/training_manual/complete_analysis/raster_to_vector.html">ссылке</a>.</p>
+<p>Пример работы автоматического векторизатора показан ниже.</p>
+<iframe width="800" height="400" src="https://www.youtube.com/embed/mQmw3N1dLFo?si=G95HGqiv-xtGZNmg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="callout-important">
+<p>Так как автоматическая векторизация здесь осуществляется фактически только по цвету пикселей вашего растра, то идеальным случаем для векторизации будут большие полигоны с равномерной заливкой и без контура, в других случаях вы можете получить слишком много маленьких полигонов, которые будут требовать дополнительной проработки и объединения.</p>
+<p>Также следует отметить, что полученные полигоны не будут иметь гладкие и ровные стороны, а будут своеобразными “лесенками”, в силу того, что пиксели напрямую преобразовываются в объекты.</p>
+</div>
+</div>
+<div id="модуль-bunting-labs-ai" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Модуль Bunting labs AI<a href="#%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-bunting-labs-ai" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Страница модуля: <a href="https://plugins.qgis.org/plugins/buntinglabs-qgis-plugin/" class="uri">https://plugins.qgis.org/plugins/buntinglabs-qgis-plugin/</a></p>
+<p>Сайт модуля: <a href="https://buntinglabs.com/solutions/ai-vectorizer-qgis-plugin" class="uri">https://buntinglabs.com/solutions/ai-vectorizer-qgis-plugin</a></p>
+<p>Репозиторий с кодом: <a href="https://github.com/BuntingLabs/buntinglabs-qgis-plugin" class="uri">https://github.com/BuntingLabs/buntinglabs-qgis-plugin</a></p>
+<p>В январе 2024 года компания Bunting Labs выпустила плагин для QGIS Bunting Labs AI Vectorizer, который помогает оцифровывать растры, продолжая линии, начатые пользователем. Разработчики называют это “автозаполнением”, потому что плагин не делает всю работу сразу, а дорисовывает части линий на основе контекста, оставляя пользователю возможность в любой момент перехватить контроль.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a></p>
+<p>Плагин <strong>AI Vectorizer</strong> работает так: когда пользователь начинает отрисовывать векторный объект, модель “смотрит” на его действия и продолжает эту линию, независимо от ее значения.</p>
+<p>Пользователь начинает оцифровывать линию или полигон по растру, и как только есть первые две вершины, маленький кусочек карты отправляется на сервер. Модель “смотрит” на нарисованный на карте отрезок и выбирает пиксели, по которым должны проходить следующие вершины, после чего плагин дорисовывает 50 следующих точек линии. Этот процесс подходит для любых линий, даже для пунктирных и тех, которые пересекают другие похожие объекты. А если плагин собьется с пути, можно просто отменить последний шаг и не терять при этом много времени.</p>
+<p>Перед работой необходимо зарегистрировать аккаунт по <a href="https://buntinglabs.com/account/register">ссылке</a>. После этого вам на указанную в форме электронную почту придет письмо для активации аккаунта.</p>
+<p>Далее следует установить модуль <strong>Bunting Labs AI Vectorizer.</strong></p>
+<iframe width="800" height="400" src="https://www.youtube.com/embed/PKEuQS4sMJE?si=5KlOz7JT4-WM5aPq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="callout-warning">
+<p>Судя по всему модуль теперь работает бесплатно только в течение 30 дней с момента активации работы с ним.</p>
+</div>
+<iframe width="800" height="400" src="images/miscgif.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="800" height="400" src="images/miscgif3.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="callout-tip">
+<p>Также в модуль входит сервис привязки с использованием искусственного интеллекта <a href="https://buntinglabs.com/solutions/ai-georeferencer." class="uri">https://buntinglabs.com/solutions/ai-georeferencer.</a></p>
+<p><img src="images/qgis-button.png" fig-align="center" /></p>
+</div>
+<div class="callout-tip">
+<p>В качестве бесплатной альтернативы можно воспользоваться модулем <a href="https://github.com/mkondratyev85/raster_tracer">Raster tracer</a>.</p>
+<p><img src="images/screen.gif" fig-align="center" /></p>
+<p>Краткую инструкцию по работе с модулем можно прочитать по <a href="https://vk.com/wall62864383_1594">ссылке</a> или посмотреть видео.</p>
+<iframe width="600" height="400" src="https://www.youtube.com/embed/vHH1dYonmfo?si=l4qfOF3z0PiPMXWh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>Этот модуль работает только для линейных объектов, но при необходимости контура можно впоследствии преобразовать в полигоны.</p>
+<p><img src="images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-03-12%20%D0%B2%2012.28.16.png" fig-align="center" /></p>
+</div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="27">
+<li id="fn27"><p><strong>Плагин для AI-оцифровки растров в QGIS -</strong> <a href="https://cartetika.ru/tpost/4dta8sa621-plagin-dlya-ai-otsifrovki-rastrov-v-qgis" class="uri">https://cartetika.ru/tpost/4dta8sa621-plagin-dlya-ai-otsifrovki-rastrov-v-qgis</a><a href="автоматическая-векторизация.html#fnref27" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vectorisation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="crs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -3,7 +3,7 @@
     "path": "~/Desktop/gravity model/geoinformatics-2.0/07-crs.Rmd",
     "project_path": "07-crs.Rmd",
     "type": "r_markdown",
-    "hash": "3193492898",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1739781787632.0,
@@ -12,15 +12,20 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "17,274",
-        "scrollLine": "0"
+        "cursorPosition": "76,0",
+        "scrollLine": "0",
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "0",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "4109:8138"
     },
     "folds": "",
-    "lastKnownWriteTime": 1739781665,
+    "lastKnownWriteTime": 1744358949,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1739781665,
+    "last_content_update": 1744358949537,
     "read_only": false,
     "read_only_alternatives": []
 }
